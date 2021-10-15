@@ -152,6 +152,19 @@ class Employee:
         self.lb_over_time.grid(row=2,column=0)
         self.txt_over_time= Entry(left_frame_2_left, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=20, justify= 'left', textvariable = over_time)
         self.txt_over_time.grid(row=2,column=1)
+        
+        #------------------------------------------Other Payment Due-----------------------------------------------------------
+        self.lb_other_payment_due= Label(left_frame_2_left, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Other Payment', bd=7, anchor='e')
+        self.lb_other_payment_due.grid(row=3,column=0)
+        self.txt_other_payment_due= Entry(left_frame_2_left, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=20, justify= 'left', textvariable = other_payment_due)
+        self.txt_other_payment_due.grid(row=3,column=1)
+        
+        #------------------------------------------Other Payment Due-----------------------------------------------------------
+        self.lb_tax= Label(left_frame_2_right, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Tax', bd=7, anchor='e')
+        self.lb_tax.grid(row=0,column=0)
+        self.txt_tax= Entry(left_frame_2_right, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=20, justify= 'left', textvariable = tax)
+        self.txt_tax.grid(row=0,column=1)
+        
         #==========================================================================================================
         
         
@@ -159,6 +172,10 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
+
+
+
 
 
 
