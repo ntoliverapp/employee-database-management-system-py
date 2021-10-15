@@ -89,6 +89,11 @@ class Employee:
             tax_code.set(" ")
             other_payment_due.set("0.00")
             self.txt_receipt.delete("1.0", END)
+        def exit_db_sys():
+            exit_db_sys = tkinter.messagebox.askyesno("Employee Database System", "Confirm if you want to exit")
+            if exit_db_sys < 0:
+                root.destroy()
+                return
     #==========================================Variables======================================================
         global Ed #employee database
         first_name = StringVar()
@@ -306,94 +311,11 @@ class Employee:
         
         self.button_Reset= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Reset', command=reset).grid(row=0, column=6, padx=1)  
         
-        self.button_Exit= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#ffffff', width=8, text = 'Exit').grid(row=0, column=7, padx=1)
+        self.button_Exit= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#ffffff', width=8, text = 'Exit', command=exit_db_sys).grid(row=0, column=7, padx=1)
                  
 if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
