@@ -167,9 +167,15 @@ class Employee:
         
         #------------------------------------------Pension-----------------------------------------------------------
         self.lb_pension= Label(left_frame_2_right, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Pension', bd=7, anchor='e')
-        self.lb_pension.grid(row=0,column=0)
+        self.lb_pension.grid(row=1,column=0)
         self.txt_pension= Entry(left_frame_2_right, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=20, justify= 'left', textvariable = pension)
-        self.txt_tax.pension(row=0,column=1)
+        self.txt_pension.grid(row=1,column=1)
+        
+        #------------------------------------------Student Loan-----------------------------------------------------------
+        self.lb_std_loan= Label(left_frame_2_right, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Student Loan', bd=7, anchor='e')
+        self.lb_std_loan.grid(row=2,column=0)
+        self.txt_std_loan= Entry(left_frame_2_right, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=20, justify= 'left', textvariable = std_loan)
+        self.txt_std_loan.grid(row=2,column=1)
         #==========================================================================================================
         
         
@@ -177,6 +183,8 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
+
 
 
 
