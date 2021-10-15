@@ -47,7 +47,7 @@ class Employee:
         
         right_frame_2 = Frame(top_frame_3, bd=5, width=300, height=400, padx=2, bg='#113B8E', relief=RIDGE)
         right_frame_2.pack(side=RIGHT)
-        right_frame_2a = Frame(right_frame_2, bd=5, width=280, height=50, padx=2, bg='#AAABE6', relief=FLAT)
+        right_frame_2a = Frame(right_frame_2, bd=2, width=280, height=50, padx=2, bg='#AAABE6', relief=FLAT)
         right_frame_2a.pack(side=TOP)
         right_frame_2b = Frame(right_frame_2, bd=5, width=280, height=180, padx=2, bg='#AAABE6', relief=FLAT)
         right_frame_2b.pack(side=TOP)
@@ -187,10 +187,22 @@ class Employee:
         self.txt_ni_payment.grid(row=3,column=1)
     
     #------------------------------------------Pay Day-----------------------------------------------------------
-        self.lb_payday= Label(right_frame_2a, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Pay Day', bd=1, anchor='w', justify=LEFT)
+        self.lb_payday= Label(right_frame_2a, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Pay Day', bd=2,anchor='w', justify=LEFT)
         self.lb_payday.grid(row=0,column=0, sticky =W)
         self.txt_payday= Entry(right_frame_2a, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=20, justify= 'left', textvariable = payday)
         self.txt_payday.grid(row=0,column=1)
+        
+        #------------------------------------------Tax Period-----------------------------------------------------------
+        self.lb_tax_period= Label(right_frame_2b, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Tax Period', bd=1, anchor='w', justify=LEFT)
+        self.lb_tax_period.grid(row=0,column=0, sticky =W)
+        self.txt_tax_period= Entry(right_frame_2b, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=17, justify= 'left', textvariable = tax_period)
+        self.txt_tax_period.grid(row=0,column=1)
+        
+        #------------------------------------------Tax Code-----------------------------------------------------------
+        self.lb_tax_code= Label(right_frame_2b, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Tax Code', bd=1, anchor='w', justify=LEFT)
+        self.lb_tax_code.grid(row=1,column=0, sticky =W)
+        self.txt_tax_code= Entry(right_frame_2b, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=17, justify= 'left', textvariable = tax_code)
+        self.txt_tax_code.grid(row=1,column=1)
         #==========================================================================================================
         
         
@@ -198,6 +210,13 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
+
+
+
+
+
+
 
 
 
