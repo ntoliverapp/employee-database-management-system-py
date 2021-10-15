@@ -189,7 +189,7 @@ class Employee:
     #------------------------------------------Pay Day-----------------------------------------------------------
         self.lb_payday= Label(right_frame_2a, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Pay Day', bd=2,anchor='w', justify=LEFT)
         self.lb_payday.grid(row=0,column=0, sticky =W)
-        self.txt_payday= Entry(right_frame_2a, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=20, justify= 'left', textvariable = payday)
+        self.txt_payday= Entry(right_frame_2a, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=19, justify= 'left', textvariable = payday)
         self.txt_payday.grid(row=0,column=1)
         
         #------------------------------------------Tax Period-----------------------------------------------------------
@@ -231,8 +231,20 @@ class Employee:
         #-------------------------------------------Net Pay-----------------------------------------------------------
         self.lb_net_pay= Label(right_frame_2d, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Net Pay', bd=1, anchor='w', justify=LEFT)
         self.lb_net_pay.grid(row=0,column=0, sticky =W)
-        self.txt_net_pay= Entry(right_frame_2d, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=12, justify= 'left', textvariable = net_pay)
-        self.txt_net_pay.grid(row=0,column=1)   
+        self.txt_net_pay= Entry(right_frame_2d, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=17, justify= 'left', textvariable = net_pay)
+        self.txt_net_pay.grid(row=0,column=1) 
+        
+        #-------------------------------------------Gross Pay-----------------------------------------------------------
+        self.lb_gross_pay= Label(right_frame_2d, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Gross Pay', bd=1, anchor='w', justify=LEFT)
+        self.lb_gross_pay.grid(row=1,column=0, sticky =W)
+        self.txt_gross_pay= Entry(right_frame_2d, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=17, justify= 'left', textvariable = gross_pay)
+        self.txt_gross_pay.grid(row=1,column=1)   
+        
+        #-------------------------------------------Deductions-----------------------------------------------------------
+        self.lb_deductions= Label(right_frame_2d, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Gross Pay', bd=1, anchor='w', justify=LEFT)
+        self.lb_deductions.grid(row=2,column=0, sticky =W)
+        self.txt_deductions= Entry(right_frame_2d, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=17, justify= 'left', textvariable = deductions)
+        self.txt_deductions.grid(row=2,column=1)  
         #==========================================================================================================
        
         
@@ -241,6 +253,7 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
 
 
 
