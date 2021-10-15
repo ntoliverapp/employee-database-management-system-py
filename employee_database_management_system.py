@@ -45,7 +45,7 @@ class Employee:
         right_frame_1a = Frame(right_frame_1, bd=5, width=310, height=300, padx=2, bg='#AAABE6', relief=FLAT)
         right_frame_1a.pack(side=TOP)
         
-        right_frame_2 = Frame(top_frame_3, bd=5, width=300, height=400, padx=2, bg='#113B8E', relief=RIDGE)
+        right_frame_2 = Frame(top_frame_3, bd=5, width=300, height=400, padx=2, bg='#AAABE6', relief=RIDGE)
         right_frame_2.pack(side=RIGHT)
         right_frame_2a = Frame(right_frame_2, bd=2, width=280, height=50, padx=2, bg='#AAABE6', relief=FLAT)
         right_frame_2a.pack(side=TOP)
@@ -209,13 +209,27 @@ class Employee:
         self.lb_ni_number.grid(row=2,column=0, sticky =W)
         self.txt_ni_number= Entry(right_frame_2b, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=17, justify= 'left', textvariable = ni_number)
         self.txt_ni_number.grid(row=2,column=1)
+        
+         #------------------------------------------NI Code-----------------------------------------------------------
+        self.lb_ni_code= Label(right_frame_2b, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'NI Code', bd=1, anchor='w', justify=LEFT)
+        self.lb_ni_code.grid(row=3,column=0, sticky =W)
+        self.txt_ni_code= Entry(right_frame_2b, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=17, justify= 'left', textvariable = ni_code)
+        self.txt_ni_code.grid(row=3,column=1)
+        
+        #------------------------------------------Taxable Pay-----------------------------------------------------------
+        self.lb_taxable_pay= Label(right_frame_2c, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Taxable Pay', bd=1, anchor='w', justify=LEFT)
+        self.lb_taxable_pay.grid(row=0,column=0, sticky =W)
+        self.txt_taxable_pay= Entry(right_frame_2c, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=12, justify= 'left', textvariable = taxable_pay)
+        self.txt_taxable_pay.grid(row=0,column=1)
         #==========================================================================================================
+       
         
         
 if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
 
 
 
