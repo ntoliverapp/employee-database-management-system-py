@@ -100,22 +100,28 @@ class Employee:
         first_employee.grid(row=1, column=0, padx=1, sticky='nsew')
         scrollbar.config(command = first_employee.xview)
         #=========================================Reference============================================================
-        self.lb_reference= Label(left_frame_1, font=('arial', 12, 'bold'), text = 'Reference', bd=7, anchor='w')
+        self.lb_reference= Label(left_frame_1, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Reference', bd=7, anchor='w')
         self.lb_reference.grid(row=0,column=0)
-        self.txt_reference= Entry(left_frame_1, font=('arial', 12, 'bold'), bg='#c7f7fa',bd=5, width=60, justify= 'left', textvariable = reference)
+        self.txt_reference= Entry(left_frame_1, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=60, justify= 'left', textvariable = reference)
         self.txt_reference.grid(row=0,column=1)
         
         #------------------------------------------First Name-----------------------------------------------------------
-        self.lb_first_name= Label(left_frame_1, font=('arial', 12, 'bold'), text = 'First Name', bd=7, anchor='w')
+        self.lb_first_name= Label(left_frame_1, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'First Name', bd=7, anchor='w')
         self.lb_first_name.grid(row=1,column=0)
-        self.txt_first_name= Entry(left_frame_1, font=('arial', 12, 'bold'), bg='#c7f7fa',bd=5, width=60, justify= 'left', textvariable = first_name)
+        self.txt_first_name= Entry(left_frame_1, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=60, justify= 'left', textvariable = first_name)
         self.txt_first_name.grid(row=1,column=1)
         
         #------------------------------------------Last Name-----------------------------------------------------------
-        self.lb_last_name= Label(left_frame_1, font=('arial', 12, 'bold'), text = 'Last Name', bd=7, anchor='w')
+        self.lb_last_name= Label(left_frame_1, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Last Name', bd=7, anchor='w')
         self.lb_last_name.grid(row=2,column=0)
-        self.txt_last_name= Entry(left_frame_1, font=('arial', 12, 'bold'), bg='#c7f7fa',bd=5, width=60, justify= 'left', textvariable = last_name)
+        self.txt_last_name= Entry(left_frame_1, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=60, justify= 'left', textvariable = last_name)
         self.txt_last_name.grid(row=2,column=1)
+        
+        #------------------------------------------Address-----------------------------------------------------------
+        self.lb_address= Label(left_frame_1, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Address', bd=7, anchor='w')
+        self.lb_address.grid(row=3,column=0)
+        self.txt_address= Entry(left_frame_1, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=60, justify= 'left', textvariable = address)
+        self.txt_address.grid(row=3,column=1)
         #==========================================================================================================
         
         
@@ -123,6 +129,17 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
+
+
+
+
+
+
+
+
+
+
 
 
 
