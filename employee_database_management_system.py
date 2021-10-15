@@ -84,11 +84,12 @@ class Employee:
         basic_salary.set(" ")
         other_payment_due.set("0.00")
         #=========================================widget============================================================
-        self.txt_receipt = Text(right_frame_1a, height=23, width=42, bd=10, font('Times new Roman', 9,'bold'))
+        self.txt_receipt = Text(right_frame_1a, height=23, width=42, bd=10, font=('arial', 9,'bold'))
         self.txt_receipt.grid(row=0,column=0)
-        #==========================================================================================================
-        
-        #==========================================================================================================
+        #=========================================heading===========================================================
+        self.lb_label = Label(top_frame_2, font=('arial', 10, 'bold'), padx=6, pady=2,
+        text='Reference\tFirstname\tLastname\tAddress\t\tGender\tMobile\tNI Number\tStudent Loan\tTax\tPension \ ')
+        #=============================listbox and scrollbar===============receipt===================================
         
         #==========================================================================================================
         
@@ -99,6 +100,7 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
 
 
 
