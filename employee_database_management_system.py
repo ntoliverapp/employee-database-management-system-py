@@ -53,8 +53,48 @@ class Employee:
         right_frame_2c.pack(side=TOP)
         right_frame_2d = Frame(right_frame_2, bd=5, width=280, height=50, padx=2, bg='#AAABE6', relief=RIDGE)
         right_frame_2d.pack(side=TOP)
-
-
+        #==========================================variables======================================================
+        global Ed #employee database
+        first_name = StringVar()
+        last_name = StringVar()
+        address = StringVar()
+        reference = StringVar()
+        city_weighting = IntVar() #extra wages employees can get for living in the city
+        mobile = StringVar()
+        basic_salary = StringVar()
+        over_time = StringVar()
+        gross_pay = StringVar()
+        net_pay = StringVar()
+        tax = StringVar()
+        pension = StringVar()
+        std_loan = StringVar()
+        ni_payment = StringVar()
+        deductions = StringVar()
+        gender = StringVar()
+        payday = StringVar()
+        tax_period = StringVar()
+        ni_number = StringVar()
+        ni_code = StringVar()
+        taxable_pay = StringVar()
+        pensionable_pay = StringVar()
+        other_payment_due = StringVar()
+        tax_code = StringVar()
+        
+        city_weighting.set(" ")
+        basic_salary.set(" ")
+        other_payment_due.set("0.00")
+        #=========================================widget============================================================
+        self.txt_receipt = Text(right_frame_1a, height=23, width=42, bd=10, font('Times new Roman', 9,'bold'))
+        self.txt_receipt.grid(row=0,column=0)
+        #==========================================================================================================
+        
+        #==========================================================================================================
+        
+        #==========================================================================================================
+        
+        #==========================================================================================================
+        
+        
 if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
