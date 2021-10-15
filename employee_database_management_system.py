@@ -159,12 +159,17 @@ class Employee:
         self.txt_other_payment_due= Entry(left_frame_2_left, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=20, justify= 'left', textvariable = other_payment_due)
         self.txt_other_payment_due.grid(row=3,column=1)
         
-        #------------------------------------------Other Payment Due-----------------------------------------------------------
+        #------------------------------------------Tax-----------------------------------------------------------
         self.lb_tax= Label(left_frame_2_right, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Tax', bd=7, anchor='e')
         self.lb_tax.grid(row=0,column=0)
         self.txt_tax= Entry(left_frame_2_right, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=20, justify= 'left', textvariable = tax)
         self.txt_tax.grid(row=0,column=1)
         
+        #------------------------------------------Pension-----------------------------------------------------------
+        self.lb_pension= Label(left_frame_2_right, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Pension', bd=7, anchor='e')
+        self.lb_pension.grid(row=0,column=0)
+        self.txt_pension= Entry(left_frame_2_right, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=20, justify= 'left', textvariable = pension)
+        self.txt_tax.pension(row=0,column=1)
         #==========================================================================================================
         
         
