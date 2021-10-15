@@ -241,18 +241,22 @@ class Employee:
         self.txt_gross_pay.grid(row=1,column=1)   
         
         #-------------------------------------------Deductions-----------------------------------------------------------
-        self.lb_deductions= Label(right_frame_2d, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Gross Pay', bd=1, anchor='w', justify=LEFT)
+        self.lb_deductions= Label(right_frame_2d, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Deductions', bd=1, anchor='w', justify=LEFT)
         self.lb_deductions.grid(row=2,column=0, sticky =W)
         self.txt_deductions= Entry(right_frame_2d, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=17, justify= 'left', textvariable = deductions)
         self.txt_deductions.grid(row=2,column=1)  
-        #==========================================================================================================
-       
+        #======================================Buttons=============================================================
+        self.button_add_new_total= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF',text = 'Add New/Total').grid(row=0, column=0, padx=1)
         
         
 if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
+
+
+
 
 
 
