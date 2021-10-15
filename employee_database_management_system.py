@@ -62,8 +62,34 @@ class Employee:
         right_frame_2c.pack(side=TOP)
         right_frame_2d = Frame(right_frame_2, bd=5, width=280, height=50, padx=2, bg='#AAABE6', relief=FLAT)
         right_frame_2d.pack(side=TOP)
-        
-        #==========================================variables======================================================
+    #==========================================Functionss=====================================================
+        def reset():
+            first_name.set(" ")
+            last_name.set(" ")
+            address.set(" ")
+            reference.set(" ")
+            city_weighting.set(" ")
+            phone.set(" ")
+            basic_salary.set(" ")
+            over_time.set(" ")
+            gross_pay.set(" ")
+            net_pay.set(" ")
+            tax.set(" ")
+            pension.set(" ")
+            std_loan.set(" ")
+            ni_payment.set(" ")
+            deductions.set(" ")
+            gender.set(" ")
+            payday.set(" ")
+            tax_period.set(" ")
+            ni_number.set(" ")
+            ni_code.set(" ")
+            taxable_pay.set(" ")
+            pensionable_pay.set(" ")
+            tax_code.set(" ")
+            other_payment_due.set("0.00")
+            self.txt_receipt.delete("1.0", END)
+    #==========================================Variables======================================================
         global Ed #employee database
         first_name = StringVar()
         last_name = StringVar()
@@ -278,7 +304,7 @@ class Employee:
 
         self.button_search= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Search').grid(row=0, column=5, padx=1)
         
-        self.button_Reset= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Reset').grid(row=0, column=6, padx=1)  
+        self.button_Reset= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Reset', command=reset).grid(row=0, column=6, padx=1)  
         
         self.button_Exit= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#ffffff', width=8, text = 'Exit').grid(row=0, column=7, padx=1)
                  
@@ -286,6 +312,8 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
+
 
 
 
