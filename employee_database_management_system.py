@@ -122,6 +122,12 @@ class Employee:
         self.lb_address.grid(row=3,column=0)
         self.txt_address= Entry(left_frame_1, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=60, justify= 'left', textvariable = address)
         self.txt_address.grid(row=3,column=1)
+        
+        #------------------------------------------Gender-----------------------------------------------------------
+        self.lb_gender= Label(left_frame_1, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Gender', bd=7, anchor='w')
+        self.lb_gender.grid(row=4,column=0)
+        self.txt_gender= Entry(left_frame_1, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=60, justify= 'left', textvariable = gender)
+        self.txt_gender.grid(row=4,column=1)
         #==========================================================================================================
         
         
@@ -129,6 +135,8 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
+
 
 
 
