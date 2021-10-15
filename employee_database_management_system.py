@@ -110,6 +110,12 @@ class Employee:
         self.lb_first_name.grid(row=1,column=0)
         self.txt_first_name= Entry(left_frame_1, font=('arial', 12, 'bold'), bg='#c7f7fa',bd=5, width=60, justify= 'left', textvariable = first_name)
         self.txt_first_name.grid(row=1,column=1)
+        
+        #------------------------------------------Last Name-----------------------------------------------------------
+        self.lb_last_name= Label(left_frame_1, font=('arial', 12, 'bold'), text = 'Last Name', bd=7, anchor='w')
+        self.lb_last_name.grid(row=2,column=0)
+        self.txt_last_name= Entry(left_frame_1, font=('arial', 12, 'bold'), bg='#c7f7fa',bd=5, width=60, justify= 'left', textvariable = last_name)
+        self.txt_last_name.grid(row=2,column=1)
         #==========================================================================================================
         
         
@@ -117,6 +123,8 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
+
 
 
 
