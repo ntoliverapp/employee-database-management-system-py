@@ -221,6 +221,18 @@ class Employee:
         self.lb_taxable_pay.grid(row=0,column=0, sticky =W)
         self.txt_taxable_pay= Entry(right_frame_2c, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=12, justify= 'left', textvariable = taxable_pay)
         self.txt_taxable_pay.grid(row=0,column=1)
+        
+        #------------------------------------------Pensionable Pay-----------------------------------------------------------
+        self.lb_pensionable_pay= Label(right_frame_2c, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Pensionable Pay', bd=1, anchor='w', justify=LEFT)
+        self.lb_pensionable_pay.grid(row=1,column=0, sticky =W)
+        self.txt_pensionable_pay= Entry(right_frame_2c, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=12, justify= 'left', textvariable = pensionable_pay)
+        self.txt_pensionable_pay.grid(row=1,column=1)
+        
+        #------------------------------------------Pensionable Pay-----------------------------------------------------------
+        self.lb_pensionable_pay= Label(right_frame_2c, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Pensionable Pay', bd=1, anchor='w', justify=LEFT)
+        self.lb_pensionable_pay.grid(row=1,column=0, sticky =W)
+        self.txt_pensionable_pay= Entry(right_frame_2c, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=12, justify= 'left', textvariable = pensionable_pay)
+        self.txt_pensionable_pay.grid(row=1,column=1)   
         #==========================================================================================================
        
         
