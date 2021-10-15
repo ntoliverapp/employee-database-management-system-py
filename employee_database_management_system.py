@@ -98,7 +98,7 @@ class Employee:
         self.txt_receipt.grid(row=0,column=0)
         #=========================================Heading===========================================================
         
-        self.lb_label = Label(top_frame_2, font=('arial', 10, 'bold'), padx=2, pady=2, bg='#89abed', width=197,bd=2,
+        self.lb_label = Label(top_frame_2, font=('arial', 12, 'bold'), padx=2, pady=2, bg='#89abed', width=197,bd=2,
         text='Reference\tFirstname\tLastname\tAddress\t\tGender\tMobile\tNI Number\tStudent Loan\tTax\tPension \ Deductions\tNet Pay\t\tGross Pay')
         self.lb_label.grid(row=0, column=0, columnspan=17)
         
@@ -286,6 +286,7 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
 
 
 

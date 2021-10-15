@@ -12,7 +12,7 @@ def employee_data():
 def add_employee_record(reference, first_name, last_name, address, gender, phone, ni_number, std_loan, tax, pension, deductions, net_pay, gross_pay):
     con = sqlite3.connect("employee.db") 
     cur = con.cursor() 
-    cur.execute("INSERT INTO employee VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,?,?))", (reference, first_name, last_name, address, gender, phone, ni_number, std_loan, tax, pension, deductions, net_pay, gross_pay)
+    cur.execute("INSERT INTO employee VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,?,?)", (reference, first_name, last_name, address, gender, phone, ni_number, std_loan, tax, pension, deductions, net_pay, gross_pay))
     con.commit() #commit allows the previous operation to happen before close
     con.close()
 #in order to view this, we need another method/function
@@ -35,7 +35,8 @@ def delete_record(id):
 def search_data(reference= "", first_name= "", last_name= "", address="", gender= "", phone= "", ni_number= "", std_loan= "", tax= "", pension= "", deductions= "", net_pay= "", gross_pay= ""):
     con = sqlite3.connect("employee.db") 
     cur = con.cursor() 
-    cur.execute("SELECT * FROM employee WHERE reference=? OR first_name=? OR last_name=? OR address=? OR gender=? OR phone=? OR ni_number=? OR std_loan=? OR tax=? OR pension=? OR deductions=? OR net_pay=? OR gross_pay=?), (reference, first_name, last_name, gender, phone, ni_number, std_loan, tax, pension, deductions, net_pay, gross_pay)
+    cur.execute("SELECT * FROM employee WHERE reference=? OR first_name=? OR last_name=? OR address=? OR gender=? OR phone=? OR ni_number=? OR std_loan=? OR tax=? OR pension=? OR deductions=? OR net_pay=? OR gross_pay=?", (reference, first_name, last_name, gender, phone, ni_number, std_loan, tax, pension, deductions, net_pay, gross_pay)
+    )
     rows = cur.fetchall()
     con.close()
     return rows
@@ -43,13 +44,17 @@ def search_data(reference= "", first_name= "", last_name= "", address="", gender
 def update_data(reference= "", first_name= "", last_name= "", address="", gender= "", phone= "", ni_number= "", std_loan= "", tax= "", pension= "", deductions= "", net_pay= "", gross_pay= ""):
     con = sqlite3.connect("employee.db") 
     cur = con.cursor() 
-    cur.execute("UPDATE employee SET reference=?, first_name=?, last_name=?, gender=?, phone=?, ni_number=?, std_loan=?, tax=?, pension=?, deductions=?, net_pay=?, gross_pay=?), (reference, first_name, last_name, address, gender, phone, ni_number, std_loan, tax, pension, deductions, net_pay, gross_pay, id)
+    cur.execute("UPDATE employee SET reference=?, first_name=?, last_name=?, address=?, gender=?, phone=?, ni_number=?, std_loan=?, tax=?, pension=?, deductions=?, net_pay=?, gross_pay=?", (reference, first_name, last_name, address, gender, phone, ni_number, std_loan, tax, pension, deductions, net_pay, gross_pay, id)
+    )
     con.commit()
     con.close()
  
  
 employee_data()   
 
+
+    
+    
     
     
     
