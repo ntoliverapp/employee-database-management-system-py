@@ -60,10 +60,17 @@ class Employee:
         right_frame_2d = Frame(right_frame_2, bd=5, width=280, height=50, padx=2, bg='#AAABE6', relief=FLAT)
         right_frame_2d.pack(side=TOP)
     #==========================================Functions=====================================================
-
-          
-          
-          
+        def add_data(): #add new data to the database
+            if(len(reference.get())!=0): 
+                employee_database.add_employee_record(reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), ni_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get())
+                first_employee.delete(0, END) #adds data to the Listbox fields
+                first_employee.insert(END, (Reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), ni_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get()))
+                
+        def display_data():
+            first_employee.delete(0, END)
+            for row in employee_database.view_data():
+                first_employee.insert(END, row, str(" "))
+            
             
         def reset():
             first_name.set(" ")
