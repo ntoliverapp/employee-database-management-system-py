@@ -203,6 +203,12 @@ class Employee:
         self.lb_tax_code.grid(row=1,column=0, sticky =W)
         self.txt_tax_code= Entry(right_frame_2b, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=17, justify= 'left', textvariable = tax_code)
         self.txt_tax_code.grid(row=1,column=1)
+        
+         #------------------------------------------NI Number-----------------------------------------------------------
+        self.lb_ni_number= Label(right_frame_2b, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'NI Number', bd=1, anchor='w', justify=LEFT)
+        self.lb_ni_number.grid(row=2,column=0, sticky =W)
+        self.txt_ni_number= Entry(right_frame_2b, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=1, width=17, justify= 'left', textvariable = ni_number)
+        self.txt_ni_number.grid(row=2,column=1)
         #==========================================================================================================
         
         
