@@ -28,7 +28,7 @@ class Employee:
 
         left_frame = Frame(top_frame_3, bd=5, width=1340, height=400, padx=2, bg='#113B8E', relief=RIDGE)
         left_frame.pack(side=LEFT)
-        left_frame_1 = Frame(left_frame, bd=5, width=600, height=180, padx=4, pady=4, bg='#AAABE6', relief=RIDGE)
+        left_frame_1 = Frame(left_frame, bd=5, width=600, height=180, padx=4, pady=4, bg='#AAABE6', relief=FLAT)
         left_frame_1.pack(side=TOP)
         
         left_frame_2 = Frame(left_frame, bd=5, width=600, height=180, padx=2, bg='#113B8E', relief=FLAT)
@@ -146,6 +146,12 @@ class Employee:
         self.lb_basic_salary.grid(row=1,column=0)
         self.txt_basic_salary= Entry(left_frame_2_left, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=20, justify= 'left', textvariable = basic_salary)
         self.txt_basic_salary.grid(row=1,column=1)
+        
+        #------------------------------------------Over Time-----------------------------------------------------------
+        self.lb_over_time= Label(left_frame_2_left, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Over Time', bd=7, anchor='e')
+        self.lb_over_time.grid(row=2,column=0)
+        self.txt_over_time= Entry(left_frame_2_left, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=20, justify= 'left', textvariable = over_time)
+        self.txt_over_time.grid(row=2,column=1)
         #==========================================================================================================
         
         
@@ -153,6 +159,7 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
 
 
 
