@@ -16,10 +16,7 @@ class Employee:
         self.root.geometry('1200x800+0+0') #+0+0 are coordinates
         self.root.configure(bg='#89abed')
         
-        
-        
-        
-        
+     
         
         #create frames
         main_frame = Frame(self.root, bd=2, width=1200, height=450, bg='#89abed', relief = FLAT)
@@ -62,7 +59,14 @@ class Employee:
         right_frame_2c.pack(side=TOP)
         right_frame_2d = Frame(right_frame_2, bd=5, width=280, height=50, padx=2, bg='#AAABE6', relief=FLAT)
         right_frame_2d.pack(side=TOP)
-    #==========================================Functionss=====================================================
+    #==========================================Functions=====================================================
+        def i_print():
+            q = self.txt_receipt.get("1.0", "end-1C")
+            filename = tempfile.mktemp(".txt")
+            open(file_name, "w").write(q) #W stands from write
+            os.startfile(filename, "print")
+          
+            
         def reset():
             first_name.set(" ")
             last_name.set(" ")
@@ -89,6 +93,7 @@ class Employee:
             tax_code.set(" ")
             other_payment_due.set("0.00")
             self.txt_receipt.delete("1.0", END)
+            
         def exit_db_sys():
             exit_db_sys = tkinter.messagebox.askyesno("Employee Database System", "Confirm if you want to exit")
             if exit_db_sys < 0:
@@ -299,7 +304,7 @@ class Employee:
         #======================================Buttons=============================================================
         self.button_add_new_total= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Add New/Total').grid(row=0, column=0, padx=1)
         
-        self.button_print= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Print').grid(row=0, column=1, padx=1)
+        self.button_print= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Print', command=i_print).grid(row=0, column=1, padx=1)
         
         self.button_display= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Display').grid(row=0, column=2, padx=1)
         
@@ -317,5 +322,7 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
+
 
 
