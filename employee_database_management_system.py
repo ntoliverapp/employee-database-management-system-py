@@ -31,27 +31,27 @@ class Employee:
         left_frame_1 = Frame(left_frame, bd=5, width=600, height=180, padx=4, pady=4, bg='#AAABE6', relief=RIDGE)
         left_frame_1.pack(side=TOP)
         
-        left_frame_2 = Frame(left_frame, bd=5, width=600, height=180, padx=2, bg='#113B8E', relief=RIDGE)
+        left_frame_2 = Frame(left_frame, bd=5, width=600, height=180, padx=2, bg='#113B8E', relief=FLAT)
         left_frame_2.pack(side=TOP)
-        left_frame_2_left = Frame(left_frame_2, bd=5, width=300, height=170, padx=2, bg='#AAABE6', relief=RIDGE)
+        left_frame_2_left = Frame(left_frame_2, bd=5, width=300, height=170, padx=2, bg='#AAABE6', relief=FLAT)
         left_frame_2_left.pack(side=LEFT)
-        left_frame_2_right = Frame(left_frame_2, bd=5, width=300, height=170, padx=2, bg='#AAABE6', relief=RIDGE)
+        left_frame_2_right = Frame(left_frame_2, bd=5, width=300, height=170, padx=2, bg='#AAABE6', relief=FLAT)
         left_frame_2_right.pack(side=RIGHT)
         
-        right_frame_1 = Frame(top_frame_3, bd=5, width=320, height=400, padx=2, bg='#113B8E', relief=RIDGE)
+        right_frame_1 = Frame(top_frame_3, bd=5, width=320, height=400, padx=2, bg='#113B8E', relief=FLAT)
         right_frame_1.pack(side=RIGHT)
-        right_frame_1a = Frame(right_frame_1, bd=5, width=310, height=300, padx=2, bg='#AAABE6', relief=RIDGE)
+        right_frame_1a = Frame(right_frame_1, bd=5, width=310, height=300, padx=2, bg='#AAABE6', relief=FLAT)
         right_frame_1a.pack(side=TOP)
         
         right_frame_2 = Frame(top_frame_3, bd=5, width=300, height=400, padx=2, bg='#113B8E', relief=RIDGE)
         right_frame_2.pack(side=RIGHT)
-        right_frame_2a = Frame(right_frame_2, bd=5, width=280, height=50, padx=2, bg='#AAABE6', relief=RIDGE)
+        right_frame_2a = Frame(right_frame_2, bd=5, width=280, height=50, padx=2, bg='#AAABE6', relief=FLAT)
         right_frame_2a.pack(side=TOP)
-        right_frame_2b = Frame(right_frame_2, bd=5, width=280, height=180, padx=2, bg='#AAABE6', relief=RIDGE)
+        right_frame_2b = Frame(right_frame_2, bd=5, width=280, height=180, padx=2, bg='#AAABE6', relief=FLAT)
         right_frame_2b.pack(side=TOP)
-        right_frame_2c = Frame(right_frame_2, bd=5, width=280, height=100, padx=2, bg='#AAABE6', relief=RIDGE)
+        right_frame_2c = Frame(right_frame_2, bd=5, width=280, height=100, padx=2, bg='#AAABE6', relief=FLAT)
         right_frame_2c.pack(side=TOP)
-        right_frame_2d = Frame(right_frame_2, bd=5, width=280, height=50, padx=2, bg='#AAABE6', relief=RIDGE)
+        right_frame_2d = Frame(right_frame_2, bd=5, width=280, height=50, padx=2, bg='#AAABE6', relief=FLAT)
         right_frame_2d.pack(side=TOP)
         #==========================================variables======================================================
         global Ed #employee database
@@ -128,6 +128,18 @@ class Employee:
         self.lb_gender.grid(row=4,column=0)
         self.txt_gender= Entry(left_frame_1, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=60, justify= 'left', textvariable = gender)
         self.txt_gender.grid(row=4,column=1)
+        
+        #------------------------------------------Phone-----------------------------------------------------------
+        self.lb_phone= Label(left_frame_1, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Phone', bd=7, anchor='w')
+        self.lb_phone.grid(row=5,column=0)
+        self.txt_phone= Entry(left_frame_1, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=60, justify= 'left', textvariable = phone)
+        self.txt_phone.grid(row=5,column=1)
+        
+        #------------------------------------------City Weighting-----------------------------------------------------------
+        self.lb_city_weighting= Label(left_frame_2_left, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'City Weighting', bd=7, anchor='e')
+        self.lb_city_weighting.grid(row=0,column=0)
+        self.txt_city_weighting= Entry(left_frame_2_left, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=20, justify= 'left', textvariable = city_weighting)
+        self.txt_city_weighting.grid(row=0,column=1)
         #==========================================================================================================
         
         
@@ -135,6 +147,12 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
+
+
+
+
+
 
 
 
