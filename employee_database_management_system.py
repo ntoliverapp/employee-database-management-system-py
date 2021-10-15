@@ -140,6 +140,12 @@ class Employee:
         self.lb_city_weighting.grid(row=0,column=0)
         self.txt_city_weighting= Entry(left_frame_2_left, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=20, justify= 'left', textvariable = city_weighting)
         self.txt_city_weighting.grid(row=0,column=1)
+        
+        #------------------------------------------Basic Salary-----------------------------------------------------------
+        self.lb_basic_salary= Label(left_frame_2_left, font=('arial', 12, 'bold'), bg='#AAABE6',text = 'Salary', bd=7, anchor='e')
+        self.lb_basic_salary.grid(row=1,column=0)
+        self.txt_basic_salary= Entry(left_frame_2_left, font=('arial', 12, 'bold'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#c7f7fa',bd=5, width=20, justify= 'left', textvariable = basic_salary)
+        self.txt_basic_salary.grid(row=1,column=1)
         #==========================================================================================================
         
         
@@ -147,6 +153,7 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
 
 
 
