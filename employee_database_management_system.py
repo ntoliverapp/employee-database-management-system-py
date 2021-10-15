@@ -9,6 +9,7 @@ import employee_database
 
 #front_end
 
+
 class Employee:
     def __init__(self,root): 
         self.root = root #name of the system
@@ -19,13 +20,13 @@ class Employee:
      
         
         #create frames
-        main_frame = Frame(self.root, bd=2, width=1200, height=450, bg='#89abed', relief = FLAT)
+        main_frame = Frame(self.root, bd=2, width=1200, height=450, bg='#89abed', relief = RIDGE)
         main_frame.grid()
         
         top_frame_1 = Frame(self.root, bd=2, width=1200, height=50, bg='#89abed', relief=FLAT)
         top_frame_1.grid(row=2, column=0)
         
-        top_frame_2 = Frame(self.root, bd=2, width=168, height=70, bg='#89abed', relief=FLAT)
+        top_frame_2 = Frame(self.root, bd=2, width=168, height=70, bg='#89abed', relief=RIDGE)
         top_frame_2.grid(row=1, column=0)
         
         top_frame_3 = Frame(self.root, bd=2, width=1200, height=300, bg='#AAABE6', relief=FLAT)
@@ -61,10 +62,12 @@ class Employee:
         right_frame_2d.pack(side=TOP)
     #==========================================Functions=====================================================
         def i_print():
-            q = self.txt_receipt.get("1.0", "end-1C")
-            filename = tempfile.mktemp(".txt")
-            open(file_name, "w").write(q) #W stands from write
+            q = self.txt_receipt.get("1.0", "end - 1c")
+            filename = tempfile.mktemp(".pdf")
+            open (filename, "w").write(q) #W stands from write
             os.startfile(filename, "print")
+          
+          
           
             
         def reset():
@@ -134,12 +137,10 @@ class Employee:
         self.txt_receipt.grid(row=0,column=0)
         #=========================================Heading===========================================================
         
-        self.lb_label = Label(top_frame_2, font=('arial', 12, 'bold'), padx=2, pady=2, bg='#89abed', width=197,bd=2,
-        text='Reference\tFirstname\tLastname\tAddress\t\tGender\tMobile\tNI Number\tStudent Loan\tTax\tPension \ Deductions\tNet Pay\t\tGross Pay')
+        self.lb_label = Label(top_frame_2, font=('arial', 10, 'bold'), padx=2, pady=2, bg='#89abed', width=160,bd=2,
+        text='Reference\tFirstname\tLastname\tAddress\tGender\tMobile\tNI Number\tStudent Loan\tTax\tPension\Deductions\tNet Pay\t\tGross Pay')
         self.lb_label.grid(row=0, column=0, columnspan=17)
-        
-        
-        
+
         
         #=============================Listbox and Scrollbar==================================================
         scrollbar = Scrollbar(top_frame_2)
@@ -322,6 +323,8 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
+
 
 
 
