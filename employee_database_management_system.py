@@ -214,13 +214,14 @@ class Employee:
             pay_reference()
             
             BS = float(basic_salary.get())
-            RB = float(reimbursement())
-            OT = float(over_time())
-            OPD = float(other_payment_due())
+            RB = float(reimbursement.get())
+            OT = float(over_time.get())
+            OPD = float(other_payment_due.get())
             
             MTax = ((BS + RB + OT + OPD) * 0.3) 
             TTax = "$", str('%.2f'%(MTax))
-            Tax.set(TTax)
+            tax.set(TTax)
+            
             
             m_pension = ((BS + RB + OT + OPD) * 0.02)
             mm_pension = "$", str('%.2f'%(m_pension))
@@ -228,6 +229,7 @@ class Employee:
             
             m_std_loan = ((BS + RB + OT + OPD) * 0.012)
             mm_std_loan = "$", str('%.2f'%(m_std_loan))
+            std_loan.set(mm_std_loan)
             
             m_ss_payment = ((BS + RB + OT + OPD) * 0.011)
             mm_ss_payment = "$", str('%.2f'%(m_ss_payment))
@@ -240,8 +242,9 @@ class Employee:
             gross_pay.set(gross_pay)
             
             ney_pay_after = (BS + RB + OT + OPD) - deduct
-            net_after = "$", str(".2f" % (net_pay_after))
-            net_pay(net_after)
+            net_after = "$", str('.2f' % (net_pay_after))
+            net_pay.set(net_after)
+            
             
             taxable_pay.set(TTax)
             pensionable_pay.set(mm_pension)
@@ -264,7 +267,9 @@ class Employee:
             self.txt_receipt.insert(END, 'NetPay:\t\t\t' + net_pay.get() + "\n")
             self.txt_receipt.insert(END, 'Gross Pay:\t\t\t' + gross_pay.get() + "\n")  
         
-                      
+            add_data()  
+                  
+ 
  
         #******************************************WIDGETS***********************************************************
         #=========================================Receipt============================================================
@@ -323,8 +328,9 @@ class Employee:
         self.txt_phone= Entry(left_frame_1, font=('arial', 16, 'normal'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#f4f5f8',bd=1, width=60, justify= 'left', textvariable = phone)
         self.txt_phone.grid(row=5,column=1)
         
-        #------------------------------------------City Weighting-----------------------------------------------------------
-        self.lbl_reimbursement= Label(left_frame_2_left, font=('arial', 16, 'bold'), bg='#AAABE6',text = 'City Weighting', bd=1, anchor='e')
+        
+        #------------------------------------------Reimbursement-----------------------------------------------------------
+        self.lbl_reimbursement= Label(left_frame_2_left, font=('arial', 16, 'bold'), bg='#AAABE6',text = 'Reimbursement', bd=1, anchor='e')
         self.lbl_reimbursement.grid(row=0,column=0)
         self.txt_reimbursement= Entry(left_frame_2_left, font=('arial', 16, 'normal'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#f4f5f8',bd=1, width=20, justify= 'left', textvariable = reimbursement)
         self.txt_reimbursement.grid(row=0,column=1)
