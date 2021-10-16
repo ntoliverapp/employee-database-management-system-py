@@ -62,16 +62,67 @@ class Employee:
     #==========================================Functions=====================================================
         def add_data(): #add new data to the database
             if(len(reference.get())!=0): 
-                employee_database.add_employee_record(reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), ni_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get())
+                employee_database.add_employee_record(reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), phone.get(), ni_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get())
                 first_employee.delete(0, END) #adds data to the Listbox fields
-                first_employee.insert(END, (Reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), ni_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get()))
+                first_employee.insert(END, (reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), phone.get(), ni_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get()))
                 
-        def display_data():
+        def display_data(): #display employee data
             first_employee.delete(0, END)
             for row in employee_database.view_data():
                 first_employee.insert(END, row, str(" "))
+        
+        def employee_record(event): #add all of the info into the listbox, call this function in listbox
+            global ed 
+            search_ed = first_employee.curselection()[0] #search inside employee data, curselection returns the index of currently selected items
+            ed = first_employee.get(search_ed)
             
-            
+            self.txt_reference.delete(0,END)
+            self.txt_reference.insert(END, ed[1])
+            self.txt_first_name.delete(0,END)
+            self.txt_first_name.insert(END, ed[2])           
+            self.txt_last_name.delete(0,END)
+            self.txt_last_name.insert(END, ed[3])
+            self.txt_address.delete(0,END)
+            self.txt_address.insert(END, ed[4])
+            self.txt_gender.delete(0,END)
+            self.txt_gender.insert(END, ed[5])
+            self.txt_phone.delete(0,END)
+            self.txt_phone.insert(END, ed[6])
+            self.txt_ni_number.delete(0,END)
+            self.txt_ni_number.insert(END, ed[7])
+            self.txt_std_loan.delete(0,END)
+            self.txt_std_loan.insert(END, ed[8])
+            self.txt_tax.delete(0,END)
+            self.txt_tax.insert(END, ed[9])   
+            self.txt_pension.delete(0,END)
+            self.txt_pension.insert(END, ed[10])     
+            self.txt_deductions.delete(0,END)
+            self.txt_deductions.insert(END, ed[11]) 
+            self.txt_net_pay.delete(0,END)
+            self.txt_net_pay.insert(END, ed[12])  
+            self.txt_gross_pay.delete(0,END)
+            self.txt_gross_pay.insert(END, ed[13])             
+        
+        def delete_data():
+            if(len(reference.get())!=0):
+                employee_database.delete_record(ed[0]) 
+                reset()
+                display_data()       
+        
+        def search_data():
+            first_employee.delete(0, END)
+            for row in employee_database.search_data (reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), phone.get(), ni_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get()):
+                first_employee.insert(END, row, str(" "))
+                
+        
+        def update_data():
+            if(len(reference.get())!=0):
+                employee_database.delete_record(ed[0])
+            if(len(reference.get())!=0):
+                employee.database.add_employee_record(reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), phone.get(), ni_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get())
+                first_employee.delete(0, END)
+                first_employee.insert(END, (reference(), first_name.get(), last_name.get(), address.get(), gender.get(), phone.get(), ni_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get()))             
+                
         def reset():
             first_name.set(" ")
             last_name.set(" ")
@@ -104,6 +155,17 @@ class Employee:
             if exit_db_sys < 0:
                 root.destroy()
                 return
+        
+        def pay_reference():
+            payday.set(time.strftime('%d/%m/%Y')) #time
+            ref_pay = random.randint (16462, 70488)
+            ref_paid = ("ref" + str(ref_pay))
+            reference.set(ref_paid)
+        
+        
+        
+        def monthly_salary():
+            pay_reference()
     #==========================================Variables======================================================
         global Ed #employee database
         first_name = StringVar()
@@ -134,6 +196,7 @@ class Employee:
         city_weighting.set(" ")
         basic_salary.set(" ")
         other_payment_due.set("0.00")
+        #******************************************WIDGETS***********************************************************
         #=========================================Receipt============================================================
         self.txt_receipt = Text(right_frame_1a, bg='#ffffff', height=28, width=30, bd=10, font=('arial', 9,'bold'))
         self.txt_receipt.grid(row=0,column=0)
@@ -149,7 +212,7 @@ class Employee:
         scrollbar.grid(row=1, column=1, sticky='ns')
         
         first_employee = Listbox(top_frame_2, width=168, height=5, bg='#ffffff',font=('arial', 12, 'bold'), yscrollcommand=scrollbar.set)
-        first_employee.bind('<<Listbox_Select>>')
+        first_employee.bind('<<Listbox_Select>>', employee_record)
         first_employee.grid(row=1, column=0, padx=1, sticky='nsew')
         scrollbar.config(command = first_employee.xview)
         #=========================================Reference============================================================
@@ -279,9 +342,6 @@ class Employee:
         self.txt_taxable_pay= Entry(right_frame_2c, font=('arial', 16, 'normal'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#f4f5f8',bd=1, width=12, justify= 'left', textvariable = taxable_pay)
         self.txt_taxable_pay.grid(row=0,column=1)
         
-        
-        
-        
         #------------------------------------------Pensionable Pay-----------------------------------------------------------
         self.lbl_pensionable_pay= Label(right_frame_2c, font=('arial', 16, 'bold'), bg='#AAABE6',text = 'Pensionable Pay', bd=1, anchor='w', justify=LEFT)
         self.lbl_pensionable_pay.grid(row=1,column=0, sticky =W)
@@ -306,15 +366,15 @@ class Employee:
         self.txt_deductions= Entry(right_frame_2d, font=('arial', 16, 'normal'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#f4f5f8',bd=1, width=17, justify= 'left', textvariable = deductions)
         self.txt_deductions.grid(row=2,column=1)  
         #======================================Buttons=============================================================
-        self.btn_add_new_total= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Add New/Total').grid(row=0, column=0, padx=1)
+        self.btn_add_new_total= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Add New/Total', command=monthly_salary).grid(row=0, column=0, padx=1)
         
-        self.btn_display= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Display').grid(row=0, column=2, padx=1)
+        self.btn_display= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Display', command=display_data).grid(row=0, column=2, padx=1)
         
-        self.btn_update= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Update').grid(row=0, column=3, padx=1) 
+        self.btn_update= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Update', command=update_data).grid(row=0, column=3, padx=1) 
         
-        self.btn_delete= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Delete').grid(row=0, column=4, padx=1)       
+        self.btn_delete= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Delete', command=delete_data).grid(row=0, column=4, padx=1)       
 
-        self.btn_search= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Search').grid(row=0, column=5, padx=1)
+        self.btn_search= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Search', command=search_data).grid(row=0, column=5, padx=1)
         
         self.btn_Reset= Button(top_frame_1, bd=1, padx=24, pady=1, font=('arial', 16, 'bold'), fg='black', bg='#FFFFFF', width=8, text = 'Reset', command=reset).grid(row=0, column=6, padx=1)  
         
@@ -324,6 +384,7 @@ if __name__ == '__main__': #main name of the system
     root = Tk()
     application = Employee(root)
     root.mainloop()
+
 
 
 
