@@ -16,7 +16,8 @@ class Employee:
         self.root.geometry('1200x800+0+0') #+0+0 are coordinates
         self.root.configure(bg='#89abed')
         
-     
+ 
+    
         
         #create frames
         main_frame = Frame(self.root, bd=2, width=1200, height=450, bg='#89abed', relief = RIDGE)
@@ -59,12 +60,44 @@ class Employee:
         right_frame_2c.pack(side=TOP)
         right_frame_2d = Frame(right_frame_2, bd=5, width=280, height=50, padx=2, bg='#AAABE6', relief=FLAT)
         right_frame_2d.pack(side=TOP)
+    
+       #==========================================Variables======================================================
+        global Ed #employee database
+        first_name = StringVar()
+        last_name = StringVar()
+        address = StringVar()
+        reference = StringVar()
+        reimbursement = IntVar() #extra wages employees can get for living in the city
+        phone = StringVar()
+        basic_salary = StringVar()
+        over_time = StringVar()
+        gross_pay = StringVar()
+        net_pay = StringVar()
+        tax = StringVar()
+        pension = StringVar()
+        std_loan = StringVar()
+        ss_payment = StringVar()
+        deductions = StringVar()
+        gender = StringVar()
+        payday = StringVar()
+        tax_period = StringVar()
+        ss_number = StringVar()
+        bi_code = StringVar()
+        taxable_pay = StringVar()
+        pensionable_pay = StringVar()
+        other_payment_due = StringVar()
+        tax_code = StringVar()
+        
+        reimbursement.set(" ")
+        basic_salary.set(" ")
+        other_payment_due.set("0.00")
+        
     #==========================================Functions=====================================================
         def add_data(): #add new data to the database
             if(len(reference.get())!=0): 
-                employee_database.add_employee_record(reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), phone.get(), ni_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get())
+                employee_database.add_employee_record(reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), phone.get(), ss_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get())
                 first_employee.delete(0, END) #adds data to the Listbox fields
-                first_employee.insert(END, (reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), phone.get(), ni_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get()))
+                first_employee.insert(END, (reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), phone.get(), ss_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get()))
                 
         def display_data(): #display employee data
             first_employee.delete(0, END)
@@ -88,8 +121,8 @@ class Employee:
             self.txt_gender.insert(END, ed[5])
             self.txt_phone.delete(0,END)
             self.txt_phone.insert(END, ed[6])
-            self.txt_ni_number.delete(0,END)
-            self.txt_ni_number.insert(END, ed[7])
+            self.txt_ss_number.delete(0,END)
+            self.txt_ss_number.insert(END, ed[7])
             self.txt_std_loan.delete(0,END)
             self.txt_std_loan.insert(END, ed[8])
             self.txt_tax.delete(0,END)
@@ -111,7 +144,7 @@ class Employee:
         
         def search_data():
             first_employee.delete(0, END)
-            for row in employee_database.search_data (reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), phone.get(), ni_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get()):
+            for row in employee_database.search_data (reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), phone.get(), ss_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get()):
                 first_employee.insert(END, row, str(" "))
                 
         
@@ -119,16 +152,16 @@ class Employee:
             if(len(reference.get())!=0):
                 employee_database.delete_record(ed[0])
             if(len(reference.get())!=0):
-                employee.database.add_employee_record(reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), phone.get(), ni_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get())
+                employee.database.add_employee_record(reference.get(), first_name.get(), last_name.get(), address.get(), gender.get(), phone.get(), ss_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get())
                 first_employee.delete(0, END)
-                first_employee.insert(END, (reference(), first_name.get(), last_name.get(), address.get(), gender.get(), phone.get(), ni_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get()))             
+                first_employee.insert(END, (reference(), first_name.get(), last_name.get(), address.get(), gender.get(), phone.get(), ss_number.get(),std_loan.get(),tax.get(),pension.get(),deductions.get(),net_pay.get(), gross_pay.get()))             
                 
         def reset():
             first_name.set(" ")
             last_name.set(" ")
             address.set(" ")
             reference.set(" ")
-            city_weighting.set(" ")
+            reimbursement.set(" ")
             phone.set(" ")
             basic_salary.set(" ")
             over_time.set(" ")
@@ -137,13 +170,13 @@ class Employee:
             tax.set(" ")
             pension.set(" ")
             std_loan.set(" ")
-            ni_payment.set(" ")
+            ss_payment.set(" ")
             deductions.set(" ")
             gender.set(" ")
             payday.set(" ")
             tax_period.set(" ")
-            ni_number.set(" ")
-            ni_code.set(" ")
+            ss_number.set(" ")
+            bi_code.set(" ")
             taxable_pay.set(" ")
             pensionable_pay.set(" ")
             tax_code.set(" ")
@@ -162,40 +195,63 @@ class Employee:
             ref_paid = ("ref" + str(ref_pay))
             reference.set(ref_paid)
         
+        ss_pay = random.randint (344627326, 704884534)
+        ss_paid = ("SSN" + str(ss_pay))
+        ss_number.set = (ss_pay)
+        
+        i_date = datetime.datetime.now()
+        tax_period.set(i_date.month)
+        
+        ben_id_code = random.randint (8000, 12000)
+        code_bi = ("BIC" + str(ben_id_code))
+        bi_code.set(code_bi)
+        
+        i_tax_code = random.randint (8000, 12000)
+        payment_tax_code = ("TCode" + str(i_tax_code))
+        tax_code.set(payment_tax_code)
+        
         
         
         def monthly_salary():
             pay_reference()
-    #==========================================Variables======================================================
-        global Ed #employee database
-        first_name = StringVar()
-        last_name = StringVar()
-        address = StringVar()
-        reference = StringVar()
-        city_weighting = IntVar() #extra wages employees can get for living in the city
-        phone = StringVar()
-        basic_salary = StringVar()
-        over_time = StringVar()
-        gross_pay = StringVar()
-        net_pay = StringVar()
-        tax = StringVar()
-        pension = StringVar()
-        std_loan = StringVar()
-        ni_payment = StringVar()
-        deductions = StringVar()
-        gender = StringVar()
-        payday = StringVar()
-        tax_period = StringVar()
-        ni_number = StringVar()
-        ni_code = StringVar()
-        taxable_pay = StringVar()
-        pensionable_pay = StringVar()
-        other_payment_due = StringVar()
-        tax_code = StringVar()
-        
-        city_weighting.set(" ")
-        basic_salary.set(" ")
-        other_payment_due.set("0.00")
+            
+            BS = float(basic_salary.get())
+            RB = float(reimbursement())
+            OT = float(over_time())
+            OPD = float(other_payment_due())
+            
+            MTax = ((BS + RB + OT + OPD) * 0.3) 
+            TTax = "$", str('%.2f'%(MTax))
+            Tax.set(TTax)
+            
+            m_pension = ((BS + RB + OT + OPD) * 0.02)
+            mm_pension = "$", str('%.2f'%(m_pension))
+            pension.set(mm_pension)
+            
+            m_std_loan = ((BS + RB + OT + OPD) * 0.012)
+            mm_std_loan = "$", str('%.2f'%(m_std_loan))
+            
+            m_ss_payment = ((BS + RB + OT + OPD) * 0.011)
+            mm_ss_payment = "$", str('%.2f'%(m_ss_payment))
+            ss_payment.set(mm_ss_payment)   
+            
+            deduct = (MTax + m_pension + m_std_loan + m_ss_payment) 
+            deduct_payment = "$", str('.2f'%(deduct))
+            deductions.set(deduct_payment)
+            gross_pay = "$", str('.2f' % (BS + RB + OT + OPD))
+            gross_pay.set(gross_pay)
+            
+            ney_pay_after = (BS + RB + OT + OPD) - deduct
+            net_after = "$", str(".2f" % (net_pay_after))
+            net_pay(net_after)
+            
+            taxable_pay.set(TTax)
+            pensionable_pay.set(mm_pension)
+            
+            
+               
+                      
+ 
         #******************************************WIDGETS***********************************************************
         #=========================================Receipt============================================================
         self.txt_receipt = Text(right_frame_1a, bg='#ffffff', height=28, width=30, bd=10, font=('arial', 9,'bold'))
@@ -203,7 +259,7 @@ class Employee:
         #=========================================Heading===========================================================
         
         self.lbl_label = Label(top_frame_2, font=('arial', 10, 'bold'), padx=2, pady=2, bg='#89abed', width=160,bd=2,
-        text='Reference\tFirstname\tLastname\tAddress\tGender\tMobile\tNI Number\tStudent Loan\tTax\tPension\Deductions\tNet Pay\t\tGross Pay')
+        text='Reference\tFirstname\tLastname\tAddress\tGender\tMobile\tSS Number\tStudent Loan\tTax\tPension\Deductions\tNet Pay\t\tGross Pay')
         self.lbl_label.grid(row=0, column=0, columnspan=17)
 
         
@@ -254,10 +310,10 @@ class Employee:
         self.txt_phone.grid(row=5,column=1)
         
         #------------------------------------------City Weighting-----------------------------------------------------------
-        self.lbl_city_weighting= Label(left_frame_2_left, font=('arial', 16, 'bold'), bg='#AAABE6',text = 'City Weighting', bd=1, anchor='e')
-        self.lbl_city_weighting.grid(row=0,column=0)
-        self.txt_city_weighting= Entry(left_frame_2_left, font=('arial', 16, 'normal'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#f4f5f8',bd=1, width=20, justify= 'left', textvariable = city_weighting)
-        self.txt_city_weighting.grid(row=0,column=1)
+        self.lbl_reimbursement= Label(left_frame_2_left, font=('arial', 16, 'bold'), bg='#AAABE6',text = 'City Weighting', bd=1, anchor='e')
+        self.lbl_reimbursement.grid(row=0,column=0)
+        self.txt_reimbursement= Entry(left_frame_2_left, font=('arial', 16, 'normal'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#f4f5f8',bd=1, width=20, justify= 'left', textvariable = reimbursement)
+        self.txt_reimbursement.grid(row=0,column=1)
         
         #------------------------------------------Basic Salary-----------------------------------------------------------
         self.lbl_basic_salary= Label(left_frame_2_left, font=('arial', 16, 'bold'), bg='#AAABE6',text = 'Salary', bd=1, anchor='e')
@@ -296,11 +352,11 @@ class Employee:
         self.txt_std_loan= Entry(left_frame_2_right, font=('arial', 16, 'normal'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#f4f5f8',bd=1, width=20, justify= 'left', textvariable = std_loan)
         self.txt_std_loan.grid(row=2,column=1)
         
-        #------------------------------------------NI Payment-----------------------------------------------------------
-        self.lbl_ni_payment= Label(left_frame_2_right, font=('arial', 16, 'bold'), bg='#AAABE6',text = 'NI Payment', bd=1, anchor='e')
-        self.lbl_ni_payment.grid(row=3,column=0)
-        self.txt_ni_payment= Entry(left_frame_2_right, font=('arial', 16, 'normal'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#f4f5f8',bd=1, width=20, justify= 'left', textvariable = ni_payment)
-        self.txt_ni_payment.grid(row=3,column=1)
+        #------------------------------------------SS Payment-----------------------------------------------------------
+        self.lbl_ss_payment= Label(left_frame_2_right, font=('arial', 16, 'bold'), bg='#AAABE6',text = 'SS Payment', bd=1, anchor='e')
+        self.lbl_ss_payment.grid(row=3,column=0)
+        self.txt_ss_payment= Entry(left_frame_2_right, font=('arial', 16, 'normal'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#f4f5f8',bd=1, width=20, justify= 'left', textvariable = ss_payment)
+        self.txt_ss_payment.grid(row=3,column=1)
     
     #------------------------------------------Pay Day-----------------------------------------------------------
         self.lbl_payday= Label(right_frame_2a, font=('arial', 16, 'bold'), bg='#AAABE6',text = 'Pay Day', bd=2,anchor='w', justify=LEFT)
@@ -324,17 +380,17 @@ class Employee:
         self.txt_tax_code= Entry(right_frame_2b, font=('arial', 16, 'normal'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#f4f5f8',bd=1, width=17, justify= 'left', textvariable = tax_code)
         self.txt_tax_code.grid(row=1,column=1)
         
-         #------------------------------------------NI Number-----------------------------------------------------------
-        self.lbl_ni_number= Label(right_frame_2b, font=('arial', 16, 'bold'), bg='#AAABE6',text = 'NI Number', bd=1, anchor='w', justify=LEFT)
-        self.lbl_ni_number.grid(row=2,column=0, sticky =W)
-        self.txt_ni_number= Entry(right_frame_2b, font=('arial', 16, 'normal'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#f4f5f8',bd=1, width=17, justify= 'left', textvariable = ni_number)
-        self.txt_ni_number.grid(row=2,column=1)
+         #------------------------------------------SS Number-----------------------------------------------------------
+        self.lbl_ss_number= Label(right_frame_2b, font=('arial', 16, 'bold'), bg='#AAABE6',text = 'SS Number', bd=1, anchor='w', justify=LEFT)
+        self.lbl_ss_number.grid(row=2,column=0, sticky =W)
+        self.txt_ss_number= Entry(right_frame_2b, font=('arial', 16, 'normal'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#f4f5f8',bd=1, width=17, justify= 'left', textvariable = ss_number)
+        self.txt_ss_number.grid(row=2,column=1)
         
-         #------------------------------------------NI Code-----------------------------------------------------------
-        self.lbl_ni_code= Label(right_frame_2b, font=('arial', 16, 'bold'), bg='#AAABE6',text = 'NI Code', bd=1, anchor='w', justify=LEFT)
-        self.lbl_ni_code.grid(row=3,column=0, sticky =W)
-        self.txt_ni_code= Entry(right_frame_2b, font=('arial', 16, 'normal'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#f4f5f8',bd=1, width=17, justify= 'left', textvariable = ni_code)
-        self.txt_ni_code.grid(row=3,column=1)
+         #------------------------------------------SS Code-----------------------------------------------------------
+        self.lbl_bi_code= Label(right_frame_2b, font=('arial', 16, 'bold'), bg='#AAABE6',text = 'SS Code', bd=1, anchor='w', justify=LEFT)
+        self.lbl_bi_code.grid(row=3,column=0, sticky =W)
+        self.txt_bi_code= Entry(right_frame_2b, font=('arial', 16, 'normal'), highlightcolor='#AAABE6', highlightbackground='#AAABE6', bg='#f4f5f8',bd=1, width=17, justify= 'left', textvariable = bi_code)
+        self.txt_bi_code.grid(row=3,column=1)
         
         #------------------------------------------Taxable Pay-----------------------------------------------------------
         self.lbl_taxable_pay= Label(right_frame_2c, font=('arial', 16, 'bold'), bg='#AAABE6',text = 'Taxable Pay', bd=1, anchor='w', justify=LEFT)
