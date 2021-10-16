@@ -210,8 +210,6 @@ class Employee:
         payment_tax_code = ("TCode" + str(i_tax_code))
         tax_code.set(payment_tax_code)
         
-        
-        
         def monthly_salary():
             pay_reference()
             
@@ -248,8 +246,24 @@ class Employee:
             taxable_pay.set(TTax)
             pensionable_pay.set(mm_pension)
             
-            
-               
+            self.txt_receipt.insert(END, '\t\t Monthly Pay Slip' + "\n\n")
+            self.txt_receipt.insert(END, 'Reference: \t\t\t' + reference.get() + "\n")
+            self.txt_receipt.insert(END, 'Reference: \t\t\t' + payday.get() + "\n")
+            self.txt_receipt.insert(END, 'Employer Name: \t\t\t' + last_name.get() + "\n")
+            self.txt_receipt.insert(END, 'Employee Name: \t\t\t' + first_name.get() + "\n\n")
+            self.txt_receipt.insert(END, 'Tax: \t\t\t' + tax.get() + "\n")
+            self.txt_receipt.insert(END, 'Pension: \t\t\t' + pension.get() + "\n")
+            self.txt_receipt.insert(END, 'Student Loan: \t\t\t' + std_loan.get() + "\n")
+            self.txt_receipt.insert(END, 'SS Number: \t\t\t' + ss_number.get() + "\n")
+            self.txt_receipt.insert(END, 'SS Payment: \t\t\t' + ss_payment.get() + "\n")
+            self.txt_receipt.insert(END, 'Deductions: \t\t\t' + deductions.get() + "\n")
+            self.txt_receipt.insert(END, 'Reimbursements: \t\t\t' + str('$ %.2f'%(reimbursement.get())) + "\n")
+           
+            self.txt_receipt.insert(END, '\nTax Paid:\t\t\t' + str( '$ %.2f'%(basic_salary.get())) + "\n")
+            self.txt_receipt.insert(END, 'Overtime:\t\t\t' + "$" + over_time.get() + "\n")
+            self.txt_receipt.insert(END, 'NetPay:\t\t\t' + net_pay.get() + "\n")
+            self.txt_receipt.insert(END, 'Gross Pay:\t\t\t' + gross_pay.get() + "\n")  
+        
                       
  
         #******************************************WIDGETS***********************************************************
